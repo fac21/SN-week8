@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const MOVIE_YEAR_URL =
-  'https://imdb-api.com/en/API/SearchMovie/{import.meta.env.VITE_APP_API_KEY}/';
+  'https://imdb-api.com/en/API/SearchMovie/${import.meta.env.VITE_APP_API_KEY}/';
 
 // const MOVIE_YEAR_URL = `https://imdb8.p.rapidapi.com/?rapidapi-key=${
 //   import.meta.env.VITE_APP_API_KEY
