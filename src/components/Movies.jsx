@@ -1,8 +1,12 @@
-import React from "react";
+import React from 'react';
 
-const MOVIE_YEAR_URL = `https://imdb8.p.rapidapi.com/?rapidapi-key=${
-  import.meta.env.VITE_APP_API_KEY
-}/title/get-ratings`;
+
+const MOVIE_YEAR_URL =
+  'https://imdb-api.com/en/API/SearchMovie/{import.meta.env.VITE_APP_API_KEY}/';
+
+// const MOVIE_YEAR_URL = `https://imdb8.p.rapidapi.com/?rapidapi-key=${
+//   import.meta.env.VITE_APP_API_KEY
+// }/title/get-ratings`;
 // `https://imdb8.p.rapidapi.com/?rapidapi-key=${
 //   import.meta.env.VITE_APP_API_KEY}/title/get-ratings
 // }`;
@@ -16,7 +20,7 @@ function Movies({ year }) {
     fetch(MOVIE_YEAR_URL + year)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+
         setMovie(data);
       });
   }, [year]);
@@ -26,9 +30,20 @@ function Movies({ year }) {
 
   return (
     <div>
-      {/* <h1>{movie.name}</h1> */}
-      {/* <img src={movie.avatar_url} alt="" width="128" height="128" />
-      <h2>Repos</h2> */}
+      <br></br>
+      <form>
+        <label>Which movie had the highest IMDb rating?</label>
+        <br></br>
+        <img src={movie.results[0].image} alt="" width="300" height="300" />
+        <br></br>
+        <button>{movie.results[0].title}</button>
+        <br></br>
+        <img src={movie.results[1].image} alt="" width="300" height="300" />
+        <br></br>
+        <button>{movie.results[1].title}</button>
+        <br></br>
+      </form>
+
       {/* <Score url={user.repos_url} /> */}
     </div>
   );
